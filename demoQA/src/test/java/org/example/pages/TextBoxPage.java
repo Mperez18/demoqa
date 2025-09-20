@@ -13,15 +13,15 @@ import java.time.Duration;
  * Encapsula la interacción con los elementos del formulario.
  */
 public class TextBoxPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Selectores de los campos del formulario
-    private By nameInput = By.id("userName");
-    private By emailInput = By.id("userEmail");
-    private By addressInput = By.id("currentAddress");
-    private By address2Input = By.id("permanentAddress");
-    private By submitButton = By.id("submit");
-    private By outputBox = By.id("output");
+    private final By nameInput = By.id("userName");
+    private final By emailInput = By.id("userEmail");
+    private final By addressInput = By.id("currentAddress");
+    private final By address2Input = By.id("permanentAddress");
+    private final By submitButton = By.id("submit");
+    private final By outputBox = By.id("output");
 
     /**
      * Constructor que recibe el WebDriver
