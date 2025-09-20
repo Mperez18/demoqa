@@ -23,8 +23,8 @@ public class TextBoxSteps {
 
     @Dado("que estoy en la página de Text Box")
     public void abrirPaginaTextBox() {
-        // Indica la ruta de chromedriver.exe
-        System.setProperty("webdriver.chrome.driver", "C:\\Proyecto de automatizacion\\chromedriver-win64\\chromedriver.exe");
+        // Indica la ruta completa de chromedriver.exe
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/text-box");
@@ -58,4 +58,3 @@ public class TextBoxSteps {
         driver.quit();
     }
 }
-

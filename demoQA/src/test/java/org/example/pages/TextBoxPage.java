@@ -3,6 +3,10 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 /**
  * Page Object para el formulario Text Box de demoqa.com
@@ -55,10 +59,15 @@ public class TextBoxPage {
     }
 
     /**
-     * Hace clic en el botón de enviar
+     * Hace clic en el botón de enviar, asegurando que esté visible y habilitado.
+     * Realiza scroll hasta el botón antes de hacer clic para evitar bloqueos.
      */
     public void submit() {
-        driver.findElement(submitButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+        // Scroll hasta el botón usando JavaScript
+        ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
+        button.click();
     }
 
     /**
@@ -69,4 +78,3 @@ public class TextBoxPage {
         return output.getText();
     }
 }
-

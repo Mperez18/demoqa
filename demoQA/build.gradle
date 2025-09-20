@@ -19,7 +19,3 @@ dependencies {
     testImplementation 'io.cucumber:cucumber-junit:7.15.0'
     testImplementation 'io.cucumber:cucumber-core:7.15.0'
 }
-
-test {
-    useJUnitPlatform()
-}
