@@ -19,7 +19,6 @@ import java.util.Map;
 public class TextBoxSteps {
     private WebDriver driver;
     private TextBoxPage textBoxPage;
-    private String outputText;
 
     @Dado("que estoy en la página de Text Box")
     public void abrirPaginaTextBox() {
@@ -35,7 +34,7 @@ public class TextBoxSteps {
     public void ingresoDatos(DataTable table) {
         // Obtiene los datos de la tabla del feature
         List<Map<String, String>> rows = table.asMaps(String.class, String.class);
-        Map<String, String> datos = rows.get(0);
+        Map<String, String> datos = rows.getFirst();
         textBoxPage.setName(datos.get("nombre"));
         textBoxPage.setEmail(datos.get("email"));
         textBoxPage.setAddress(datos.get("dirección"));
@@ -49,7 +48,7 @@ public class TextBoxSteps {
 
     @Entonces("veo los datos ingresados en la confirmación")
     public void verificarDatos() {
-        outputText = textBoxPage.getOutputText();
+        String outputText = textBoxPage.getOutputText();
         // Verifica que la salida contiene los datos ingresados
         Assert.assertTrue(outputText.contains("Juan Perez"));
         Assert.assertTrue(outputText.contains("juan@mail.com"));
